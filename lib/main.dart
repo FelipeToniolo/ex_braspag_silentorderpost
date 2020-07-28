@@ -122,38 +122,54 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: <Widget>[
-                              Text('Cartão Protegido'),
-                              Switch(
-                                  value: this._tokenize,
-                                  onChanged: (bool value) {
-                                    setState(() => this._tokenize = value);
-                                  }),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: <Widget>[
-                              Text('Consulta BIN'),
-                              Switch(
-                                  value: this._binQuery,
-                                  onChanged: (bool value) {
-                                    setState(() => this._binQuery = value);
-                                  }),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: <Widget>[
-                              Text('Zero Auth'),
-                              Switch(
-                                  value: this._verify,
-                                  onChanged: (bool value) {
-                                    setState(() => this._verify = value);
-                                  })
-                            ],
+                          Padding(
+                            padding: EdgeInsets.symmetric(vertical: 16),
+                            child: Container(
+                              width: MediaQuery.of(context).size.width / 2,
+                              child: Column(
+                                children: <Widget>[
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: <Widget>[
+                                      Text('Cartão Protegido'),
+                                      Switch(
+                                          value: this._tokenize,
+                                          onChanged: (bool value) {
+                                            setState(
+                                                () => this._tokenize = value);
+                                          }),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: <Widget>[
+                                      Text('Consulta BIN'),
+                                      Switch(
+                                          value: this._binQuery,
+                                          onChanged: (bool value) {
+                                            setState(
+                                                () => this._binQuery = value);
+                                          }),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: <Widget>[
+                                      Text('Zero Auth'),
+                                      Switch(
+                                          value: this._verify,
+                                          onChanged: (bool value) {
+                                            setState(
+                                                () => this._verify = value);
+                                          })
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                           RaisedButton(
                             color: Colors.blue,
