@@ -29,40 +29,40 @@ class ResponsePage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           response.foreignCard != null
-                              ? Text('ForeignCard => : ${response.foreignCard}')
+                              ? Text('ForeignCard  : ${response.foreignCard}')
                               : Text(''),
                           response.binQueryReturnCode != null
                               ? Text(
-                                  'BinQuery Return Code => : ${response.binQueryReturnCode}')
+                                  'BinQuery Return Code  : ${response.binQueryReturnCode}')
                               : Text(''),
                           response.brand != null
-                              ? Text('Brand => : ${response.brand}')
+                              ? Text('Brand  : ${response.brand}')
                               : Text(''),
                           response.binQueryReturnMessage != null
                               ? Text(
-                                  'BinQuery Return Message => : ${response.binQueryReturnMessage}')
+                                  'BinQuery Return Message  : ${response.binQueryReturnMessage}')
                               : Text(''),
                           response.verifyCardStatus != null
                               ? Text(
-                                  'VerifyCard Status => : ${response.verifyCardStatus}')
+                                  'VerifyCard Status  : ${response.verifyCardStatus}')
                               : Text(''),
                           response.verifyCardReturnCode != null
                               ? Text(
-                                  'VerifyCard Return Code => : ${response.verifyCardReturnCode}')
+                                  'VerifyCard Return Code  : ${response.verifyCardReturnCode}')
                               : Text(''),
                           response.verifyCardReturnMessage != null
                               ? Text(
-                                  'VerifyCard Return Message => : ${response.verifyCardReturnMessage}')
+                                  'VerifyCard Return Message  : ${response.verifyCardReturnMessage}')
                               : Text(''),
                           response.cardBin != null
-                              ? Text('CardBin => : ${response.cardBin}')
+                              ? Text('CardBin  : ${response.cardBin}')
                               : Text(''),
                           response.cardLast4Digits != null
                               ? Text(
-                                  'CardLast4Digits => : ${response.cardLast4Digits}')
+                                  'CardLast4Digits  : ${response.cardLast4Digits}')
                               : Text(''),
                           response.cardToken != null
-                              ? Text('Card Token => : ${response.cardToken}')
+                              ? Text('Card Token  : ${response.cardToken}')
                               : Text(''),
                         ],
                       ),

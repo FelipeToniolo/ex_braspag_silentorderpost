@@ -55,13 +55,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   minHeight: viewportConstraints.maxHeight,
                 ),
                 child: Container(
+                  padding: EdgeInsets.all(6),
                   child: Center(
-                    child: Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 16),
+                          child: Center(
                             child: TextFormField(
                               controller: _controllerName,
                               decoration: InputDecoration(
@@ -74,135 +75,136 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(vertical: 8.0),
-                            child: Center(
-                              child: TextFormField(
-                                controller: _controllerNumber,
-                                decoration: InputDecoration(
-                                  labelText: "Numero do Cartão",
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.vertical(
-                                          top: Radius.zero)),
-                                  labelStyle: TextStyle(fontSize: 25),
-                                  hintStyle: TextStyle(fontSize: 16),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 2),
+                          child: Center(
+                            child: TextFormField(
+                              maxLength: 16,
+                              controller: _controllerNumber,
+                              decoration: InputDecoration(
+                                labelText: "Numero do Cartão",
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.vertical(
+                                        top: Radius.zero)),
+                                labelStyle: TextStyle(fontSize: 25),
+                                hintStyle: TextStyle(fontSize: 16),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 2),
+                          child: Center(
+                            child: TextFormField(
+                              maxLength: 7,
+                              controller: _controllerExpiration,
+                              decoration: InputDecoration(
+                                labelText: "Data de expiração",
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.vertical(
+                                        top: Radius.zero)),
+                                labelStyle: TextStyle(fontSize: 25),
+                                hintStyle: TextStyle(fontSize: 16),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 0),
+                          child: Center(
+                            child: TextFormField(
+                              maxLength: 3,
+                              controller: _controllerCvv,
+                              decoration: InputDecoration(
+                                labelText: "CVV",
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.vertical(
+                                        top: Radius.zero)),
+                                labelStyle: TextStyle(fontSize: 25),
+                                hintStyle: TextStyle(fontSize: 16),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 16),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width / 2,
+                            child: Column(
+                              children: <Widget>[
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text('Cartão Protegido'),
+                                    Switch(
+                                        value: this._tokenize,
+                                        onChanged: (bool value) {
+                                          setState(
+                                              () => this._tokenize = value);
+                                        }),
+                                  ],
                                 ),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(vertical: 8.0),
-                            child: Center(
-                              child: TextFormField(
-                                controller: _controllerExpiration,
-                                decoration: InputDecoration(
-                                  labelText: "Data de expiração",
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.vertical(
-                                          top: Radius.zero)),
-                                  labelStyle: TextStyle(fontSize: 25),
-                                  hintStyle: TextStyle(fontSize: 16),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text('Consulta BIN'),
+                                    Switch(
+                                        value: this._binQuery,
+                                        onChanged: (bool value) {
+                                          setState(
+                                              () => this._binQuery = value);
+                                        }),
+                                  ],
                                 ),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8.0),
-                            child: Center(
-                              child: TextFormField(
-                                controller: _controllerCvv,
-                                decoration: InputDecoration(
-                                  labelText: "CVV",
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.vertical(
-                                          top: Radius.zero)),
-                                  labelStyle: TextStyle(fontSize: 25),
-                                  hintStyle: TextStyle(fontSize: 16),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Text('Zero Auth'),
+                                    Switch(
+                                        value: this._verify,
+                                        onChanged: (bool value) {
+                                          setState(() => this._verify = value);
+                                        })
+                                  ],
                                 ),
-                              ),
+                              ],
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(vertical: 16),
-                            child: Container(
-                              width: MediaQuery.of(context).size.width / 2,
-                              child: Column(
-                                children: <Widget>[
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: <Widget>[
-                                      Text('Cartão Protegido'),
-                                      Switch(
-                                          value: this._tokenize,
-                                          onChanged: (bool value) {
-                                            setState(
-                                                () => this._tokenize = value);
-                                          }),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: <Widget>[
-                                      Text('Consulta BIN'),
-                                      Switch(
-                                          value: this._binQuery,
-                                          onChanged: (bool value) {
-                                            setState(
-                                                () => this._binQuery = value);
-                                          }),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: <Widget>[
-                                      Text('Zero Auth'),
-                                      Switch(
-                                          value: this._verify,
-                                          onChanged: (bool value) {
-                                            setState(
-                                                () => this._verify = value);
-                                          })
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
+                        ),
+                        RaisedButton(
+                          color: Colors.blue,
+                          onPressed: () {
+                            _sendCard();
+                            setState(() {});
+                          },
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(2),
                           ),
-                          RaisedButton(
-                            color: Colors.blue,
-                            onPressed: () {
-                              _sendCard();
-                              setState(() {});
-                            },
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(2),
-                            ),
-                            child: Container(
-                              constraints:
-                                  BoxConstraints(maxWidth: 200, minHeight: 50),
-                              alignment: Alignment.center,
-                              child: showProgress
-                                  ? Center(
-                                      child: CircularProgressIndicator(
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
-                                                Colors.white),
-                                      ),
-                                    )
-                                  : Text(
-                                      "Test",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 22,
-                                      ),
+                          child: Container(
+                            constraints:
+                                BoxConstraints(maxWidth: 200, minHeight: 50),
+                            alignment: Alignment.center,
+                            child: showProgress
+                                ? Center(
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                          Colors.white),
                                     ),
-                            ),
+                                  )
+                                : Text(
+                                    "Test",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 22,
+                                    ),
+                                  ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -226,7 +228,7 @@ class _MyHomePageState extends State<MyHomePage> {
       cvv = _controllerCvv.text;
 
       var sop = SilentOrderPost(
-          merchantId: 'Merchant Id',
+          merchantId: 'Merchant id',
           enviroment: SilentOrderPostEnviroment.SANDBOX);
 
       sop.binQuery = _binQuery;
