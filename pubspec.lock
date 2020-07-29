@@ -32,10 +32,10 @@ packages:
   braspag_silent_order_post_dart:
     dependency: "direct main"
     description:
-      path: "/Users/felipe/Desktop/braspag_silent_order_post_dart"
-      relative: false
-    source: path
-    version: "1.0.0"
+      name: braspag_silent_order_post_dart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   charcode:
     dependency: transitive
     description:
